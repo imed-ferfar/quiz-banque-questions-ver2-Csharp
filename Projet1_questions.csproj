@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D33EECA-BBE8-4B7C-8FF9-641E74551F73}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Projet1_questions</RootNamespace>
+    <AssemblyName>Projet1_questions</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DLL_projet">
+      <HintPath>.\DLL_projet.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Formation AEC Analyste Programmeur\Cours\Session 03\420-A12-BB Mercredi\Cours02\mysql-connector-net-8.0.23-noinstall\v4.8\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="daos\SqlQuestionDao.cs" />
+    <Compile Include="daos\QuestionDao.cs" />
+    <Compile Include="modele\Choix.cs" />
+    <Compile Include="modele\GroupeEtudiants.cs" />
+    <Compile Include="modele\Matiere.cs" />
+    <Compile Include="modele\Erreur_image.cs" />
+    <Compile Include="modele\Groupe.cs" />
+    <Compile Include="modele\Invitation.cs" />
+    <Compile Include="modele\ListeQuestions.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="services\PresentationServices.cs" />
+    <Compile Include="singleton\Profil.cs" />
+    <Compile Include="modele\QCM.cs" />
+    <Compile Include="modele\Question.cs" />
+    <Compile Include="modele\Etudiant.cs" />
+    <Compile Include="modele\Personne.cs" />
+    <Compile Include="modele\Enseignant.cs" />
+    <Compile Include="modele\Scenario.cs" />
+    <Compile Include="services\ScenarioServices.cs" />
+    <Compile Include="ui\enseignant\affficherQues\FenetreAfficheQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\affficherQues\FenetreAfficheQuestion.Designer.cs">
+      <DependentUpon>FenetreAfficheQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\CreerGroupe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\CreerGroupe.Designer.cs">
+      <DependentUpon>CreerGroupe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\FenCommentaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\FenCommentaire.Designer.cs">
+      <DependentUpon>FenCommentaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQuesRes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQuesRes.Designer.cs">
+      <DependentUpon>PanAjoutQuesRes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQuesImg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQuesImg.Designer.cs">
+      <DependentUpon>PanAjoutQuesImg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQCM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\modif\PanAjoutQCM.Designer.cs">
+      <DependentUpon>PanAjoutQCM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauBanqueQuestion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauBanqueQuestion.Designer.cs">
+      <DependentUpon>PanneauBanqueQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauGroupe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauGroupe.Designer.cs">
+      <DependentUpon>PanneauGroupe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauInvitation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauInvitation.Designer.cs">
+      <DependentUpon>PanneauInvitation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\etudiant\ListePanneaux.cs" />
+    <Compile Include="ui\etudiant\PanneauDebut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauDebut.Designer.cs">
+      <DependentUpon>PanneauDebut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauErrImg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauQCM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauQuiz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauQuiz.Designer.cs">
+      <DependentUpon>PanneauQuiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauResExec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauResultat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauResultat.Designer.cs">
+      <DependentUpon>PanneauResultat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauProfilEtud.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\PanneauProfilEtud.Designer.cs">
+      <DependentUpon>PanneauProfilEtud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\FenModifPasse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\FenModifPasse.Designer.cs">
+      <DependentUpon>FenModifPasse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauCompte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\PanneauCompte.Designer.cs">
+      <DependentUpon>PanneauCompte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utils\GestionImage.cs" />
+    <Compile Include="utils\QuestionDejaPresenteException.cs" />
+    <Compile Include="modele\Resultat_execution.cs" />
+    <Compile Include="services\QuestionServices.cs" />
+    <Compile Include="singleton\BdConnexion.cs" />
+    <Compile Include="ui\enseignant\FenEnseignant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\enseignant\FenEnseignant.Designer.cs">
+      <DependentUpon>FenEnseignant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\FenSeConnecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\FenSeConnecter.Designer.cs">
+      <DependentUpon>FenSeConnecter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ui\FenNouveauUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\FenNouveauUtilisateur.Designer.cs">
+      <DependentUpon>FenNouveauUtilisateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\etudiant\FenEtudiant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\etudiant\FenEtudiant.Designer.cs">
+      <DependentUpon>FenEtudiant.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ui\enseignant\affficherQues\FenetreAfficheQuestion.resx">
+      <DependentUpon>FenetreAfficheQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\CreerGroupe.resx">
+      <DependentUpon>CreerGroupe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\FenCommentaire.resx">
+      <DependentUpon>FenCommentaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\FenEnseignant.resx">
+      <DependentUpon>FenEnseignant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\modif\PanAjoutQuesRes.resx">
+      <DependentUpon>PanAjoutQuesRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\modif\PanAjoutQuesImg.resx">
+      <DependentUpon>PanAjoutQuesImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\modif\PanAjoutQCM.resx">
+      <DependentUpon>PanAjoutQCM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\PanneauBanqueQuestion.resx">
+      <DependentUpon>PanneauBanqueQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\PanneauGroupe.resx">
+      <DependentUpon>PanneauGroupe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\PanneauInvitation.resx">
+      <DependentUpon>PanneauInvitation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauErrImg.resx">
+      <DependentUpon>PanneauErrImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauQCM.resx">
+      <DependentUpon>PanneauQCM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauResultat.resx">
+      <DependentUpon>PanneauResultat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauProfilEtud.resx">
+      <DependentUpon>PanneauProfilEtud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\FenModifPasse.resx">
+      <DependentUpon>FenModifPasse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\FenNouveauUtilisateur.resx">
+      <DependentUpon>FenNouveauUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\FenSeConnecter.resx">
+      <DependentUpon>FenSeConnecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\FenEtudiant.resx">
+      <DependentUpon>FenEtudiant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauDebut.resx">
+      <DependentUpon>PanneauDebut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\etudiant\PanneauQuiz.resx">
+      <DependentUpon>PanneauQuiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\enseignant\PanneauCompte.resx">
+      <DependentUpon>PanneauCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\c-vs-java.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Test-paper-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgSuivant.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
